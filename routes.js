@@ -10,7 +10,8 @@ const routes = [
         method: '*',
         path: '/',
         handler: (request, h) => {
-            return 'Home page cannot be accessed by using this method.';
+            const requestMethod = request.method;
+            return `Home page cannot be accessed by using ${requestMethod} method.`;
         }
     },
     {
@@ -24,14 +25,16 @@ const routes = [
         method: '*',
         path: '/about',
         handler: (request, h) => {
-            return 'About page cannot be accessed by using this method.';
+            const requestMethod = request.method;
+            return `About page cannot be accessed by using ${requestMethod} method.`;
         }
     },
     {
         method: '*',
         path: '/{any*}',
         handler: (request, h) => {
-            return 'Page is not found.';
+            const requestPath = request.path;
+            return `${requestPath} endpoint is not found.`;
         }
     },
 ];
