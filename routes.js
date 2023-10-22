@@ -37,6 +37,14 @@ const routes = [
             return `${requestPath} endpoint is not found.`;
         }
     },
+    {
+        method: 'GET',
+        path: '/users/{username}',
+        handler: (request, h) => {
+            const {username} = request.params;
+            return `Hi! Welcome to ${username} profile page.`;
+        }
+    },
 ];
 
 module.exports = routes;
