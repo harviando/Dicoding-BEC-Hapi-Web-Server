@@ -39,7 +39,7 @@ const routes = [
     },
     {
         method: 'GET',
-        path: '/users/{username}',
+        path: '/users/{username?}',
         handler: (request, h) => {
             const {username} = request.params;
             return `Hi! Welcome to ${username} profile page.`;
