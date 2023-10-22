@@ -45,6 +45,14 @@ const routes = [
             return `Hi! Welcome to ${username} profile page.`;
         }
     },
+    {
+        method: 'GET',
+        path: '/hello/{name?}',
+        handler: (request, h) => {
+            const { name = 'Anon' } = request.params;
+            return `Hello! ${name}.`;
+        }
+    },
 ];
 
 module.exports = routes;
