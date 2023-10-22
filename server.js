@@ -1,0 +1,1 @@
+console.log("I will be cloud architect that work remotely!");
