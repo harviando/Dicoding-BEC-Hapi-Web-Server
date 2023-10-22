@@ -1,6 +1,7 @@
 console.log("I will be cloud architect that work remotely!");
 
 const Hapi = require('@hapi/hapi');
+const routes = require('./routes');
 
 const init = async () => {
 
@@ -10,27 +11,13 @@ const init = async () => {
         host: 'localhost',
     });
 
+    //Server route
+    server.route(routes);
+
     // Server start
     await server.start();
     console.log(`Server is running on ${server.info.uri}`);
 
-    //Server route
-    server.route([
-        {
-            method: 'GET',
-            path: '/',
-            handler: (request, h) => {
-                return 'Home page.';
-            }
-        },
-        {
-            method: 'GET',
-            path: '/about',
-            handler: (request, h) => {
-                return 'About page.';
-            }
-        },
-    ]);
 }
 
 init();
