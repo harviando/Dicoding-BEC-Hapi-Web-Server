@@ -3,7 +3,9 @@ const routes = [
         method: 'GET',
         path: '/',
         handler: (request, h) => {
-            return 'Home page.';
+            const { name = 'guest', location = 'earth' } = request.query;
+
+            return `Hello ${name} from ${location}, Welcome to Home page.`;
         }
     },
     {
@@ -50,7 +52,14 @@ const routes = [
         path: '/hello/{name?}',
         handler: (request, h) => {
             const { name = 'Anon' } = request.params;
-            return `Hello! ${name}.`;
+            const { lang = 'eng' } = request.query;
+
+            if (lang === 'id') {
+                return `Halo! ${name}, Apa kabar?`;
+            }
+
+            return `Hello! ${name}, How are You?`;
+            
         }
     },
 ];
