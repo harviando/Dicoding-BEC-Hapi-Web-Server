@@ -72,6 +72,17 @@ const routes = [
             
         }
     },
+    {
+        method: 'GET',
+        path: '/checking/response',
+        handler: (request, h) => {
+            return h.response('Done!')
+                    .code(201)
+                    .header('X-Custom', 'custom-value')
+                    .type('text/plain');
+            
+        }
+    },
 ];
 
 module.exports = routes;
