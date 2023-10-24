@@ -62,6 +62,16 @@ const routes = [
             
         }
     },
+    {
+        method: 'POST',
+        path: '/users/register',
+        handler: (request, h) => {
+            const {username, password} = request.payload;
+
+            return `Hello! ${username}, Your password is ${password}.`;
+            
+        }
+    },
 ];
 
 module.exports = routes;
